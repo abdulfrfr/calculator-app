@@ -5,23 +5,23 @@ function Calc () {
 const [isDone, setIsDone] = useState(false)
 const [change, setChange] = useState(false)
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-const [getNum1, setGetNum1] = useState(null)
-const [getNum2, setGetNum2] = useState(null)
-const [sign, getSign]= useState(null)
-const [total, setTotal] = useState(null)
+const [getNum1, setGetNum1] = useState('')
+const [getNum2, setGetNum2] = useState('')
+const [sign, getSign]= useState('')
+const [total, setTotal] = useState('')
 
 
-function handleInputValue(eachNum){
-
+function handleInputValue(event){
+const num = event.target.innerHTML
 
 if(isDone === true){
-    setGetNum2(()=> Number(getNum2 + eachNum))
+    setGetNum2(()=> Number(getNum2 + num))
 } else if(isDone === false){
-    setGetNum1(()=> Number(getNum1 + eachNum))
+    setGetNum1(()=> Number(getNum1 + num))
 } else{
     return null
 }
-console.log(eachNum);
+console.log(num);
 
 }
 
@@ -54,20 +54,20 @@ if(operator === '+'){
 
 setChange(true)
 
-setGetNum1(null)
-setGetNum2(null)
-getSign(null)
+setGetNum1('')
+setGetNum2('')
+getSign('')
 
 console.log(total);
 
 }
 
 function clearAll(){
-    setGetNum1(null)
-    setGetNum2(null)
-    getSign(null)
+    setGetNum1('')
+    setGetNum2('')
+    getSign('')
     setIsDone(false)
-    setTotal(null)
+    setTotal('')
     setChange(false)
 }
 
@@ -88,7 +88,7 @@ function clearAll(){
         </div>
         <div className='figures'>
         <div className='numbers'>
-        {numbers.map((eachNum, index)=>{return <button className="btn" id={index} key={index} onClick={()=> handleInputValue(eachNum)}>{eachNum}</button>})}
+        {numbers.map((eachNum, index)=>{return <button className="btn" id={index} key={index} onClick={handleInputValue}>{eachNum}</button>})}
         <button className='btn operators' onClick={handleInputChange}>+</button>
         <button className='btn operators' onClick={handleInputChange}>-</button>
         
