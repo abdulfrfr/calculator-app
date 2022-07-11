@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 function Calc () {
 const [isDone, setIsDone] = useState(false)
+const [change, setChange] = useState(false)
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 const [getNum1, setGetNum1] = useState('')
 const [getNum2, setGetNum2] = useState('')
@@ -50,8 +51,7 @@ if(operator === '+'){
     return null
 }
 
-setIsDone(false)
-setGetNum1(total)
+setChange(true)
 console.log(total);
 
 }
@@ -61,6 +61,8 @@ function clearAll(){
     setGetNum2('')
     getSign('')
     setIsDone(false)
+    setTotal('')
+    setChange(false)
 }
 
 
@@ -71,7 +73,9 @@ function clearAll(){
         </div>
         <div className='inputs'>
          
-        <input className='firstInput' type='text' name='num' value={isDone ? getNum2 : getNum1 }/>
+        {change? <input className='firstInput' type='text' name='num' value={total}/> 
+        :
+        <input className='firstInput' type='text' name='num' value={isDone ? getNum2 : getNum1 }/>}
         
         
         </div>
