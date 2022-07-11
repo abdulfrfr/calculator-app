@@ -39,13 +39,13 @@ function handleInputChange(event){
 function evaluation(num1, num2, operator){
 
 if(operator === '+'){
-    setTotal(()=> num1 + num2)
+    setTotal(num1 + num2)
 } else if (operator === '-'){
-    setTotal(()=> num1 - num2)
+    setTotal(num1 - num2)
 } else if (operator === 'X'){
-    setTotal(()=> num1 * num2)
+    setTotal(num1 * num2)
 } else if(operator === '/'){
-    setTotal(()=> num1 / num2)
+    setTotal(num1 / num2)
 } else{
     return null
 }
