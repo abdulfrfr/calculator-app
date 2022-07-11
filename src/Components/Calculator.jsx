@@ -28,7 +28,8 @@ console.log(num);
 
 function handleInputChange(event){
     const value = event.target.innerHTML
-    setIsDone(true)
+    setIsDone(!isDone)
+    setChange(false)
     getSign(value)
 
     console.log(getNum1);
