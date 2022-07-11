@@ -53,6 +53,7 @@ if(operator === '+'){
 }
 
 setChange(true)
+
 console.log(total);
 
 }
