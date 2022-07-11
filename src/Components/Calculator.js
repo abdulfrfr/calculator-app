@@ -42,33 +42,21 @@ function evaluation(num1, num2, operator){
 
 if(operator === '+'){
     setTotal(num1 + num2)
-    setChange(true)
-    setGetNum1(null)
-    setGetNum2(null)
-    getSign(null)
 } else if (operator === '-'){
     setTotal(num1 - num2)
-    setChange(true)
-    setGetNum1(null)
-    setGetNum2(null)
-    getSign(null)
 } else if (operator === 'X'){
     setTotal(num1 * num2)
-    setChange(true)
-    setGetNum1(null)
-    setGetNum2(null)
-    getSign(null)
 } else if(operator === '/'){
     setTotal(num1 / num2)
-    setChange(true)
-    setGetNum1(null)
-    setGetNum2(null)
-    getSign(null)
 } else{
     return null
 }
 
+setChange(true)
 
+setGetNum1(null)
+setGetNum2(null)
+getSign(null)
 
 console.log(total);
 
