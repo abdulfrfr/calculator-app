@@ -44,7 +44,7 @@ if(operator === '+'){
     setTotal(num1 + num2)
 } else if (operator === '-'){
     setTotal(num1 - num2)
-} else if (operator === 'X'){
+} else if (operator === '*'){
     setTotal(num1 * num2)
 } else if(operator === '/'){
     setTotal(num1 / num2)
