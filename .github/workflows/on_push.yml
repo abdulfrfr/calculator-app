@@ -2,8 +2,7 @@ name: Triggered for changed files
 on:
   push:
     branches:
-    - develop
-    - pre-production
+    - master
 
 jobs:
   changedfiles:
