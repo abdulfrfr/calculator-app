@@ -1,0 +1,34 @@
+name: Triggered for changed files
+on:
+  push:
+    branches:
+    - develop
+    - pre-production
+
+jobs:
+  changedfiles:
+    runs-on: ubuntu-latest
+    outputs:
+      all: ${{ steps.changes.outputs.all }}
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Get changed files
+      id: changes
+      run: |
+        echo "all=$(git diff --name-only --diff-filter=ACMRT HEAD^ HEAD | xargs)" >> $GITHUB_ENV
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: changedfiles
+    if: ${{ needs.changedfiles.outputs.all != '' }}
+    steps:
+    - name: Echo changed files
+      run: echo ${{ needs.changedfiles.outputs.all }}
+    - name: alert
+      run: |
+        curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"Merge successful on develop branch\"}" \
+        https://hooks.slack.com/services/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
